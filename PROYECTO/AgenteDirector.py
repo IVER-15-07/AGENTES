@@ -2,11 +2,19 @@ class AgenteDirector:
     def __init__(self, responsable):
         self.inscripciones = {}
         self.responsable = responsable
+        self.estado = {}
+
+    def actualizar_estado(self, estudiante, materias):
+        self.estado[estudiante.nombre] = {
+            'boleta': estudiante.boleta,
+            'materias': materias
+        }
 
     def solicitar_boleta_y_materias(self, estudiante):
         boleta_ingresada = input(f"Ingrese la boleta de pago para {estudiante.nombre}: ")
         if boleta_ingresada == estudiante.boleta:
             materias = input(f"Ingrese las materias para {estudiante.nombre} separadas por comas: ").split(',')
+            self.actualizar_estado(estudiante, materias)
             self.inscribir(estudiante, materias)
         else:
             print(f"Boleta incorrecta. {estudiante.nombre} no puede inscribirse.")

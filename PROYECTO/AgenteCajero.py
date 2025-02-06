@@ -4,6 +4,12 @@ import time
 class AgenteCajero:
     def __init__(self):
         self.boletas = {}
+        self.estado = {}
+
+    def actualizar_estado(self, estudiante):
+        self.estado[estudiante.nombre] = {
+            'boleta': estudiante.boleta
+        }
 
     def cobrar_matricula(self, estudiante):
         print("\n-----------------")
@@ -24,6 +30,7 @@ class AgenteCajero:
         codigo_boleta = f"BOLETA-{random.randint(1000, 9999)}"
         self.boletas[estudiante.nombre] = codigo_boleta
         estudiante.boleta = codigo_boleta
+        self.actualizar_estado(estudiante)
         print(f"Matricula cobrada a {estudiante.nombre}. Boleta: {codigo_boleta}")
 
     def entregar_boletas(self):
