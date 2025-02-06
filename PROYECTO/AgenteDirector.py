@@ -36,8 +36,20 @@ class AgenteDirector:
 
     def solicitar_boleta_y_materias(self, estudiante):
         percepcion = {'boleta_ingresada': estudiante.boleta}
+        # Asegúrate de que 'boleta' esté en el estado inicial
+        if 'boleta' not in self.estado:
+            self.estado['boleta'] = None  # O algún valor predeterminado
         self.estado = self.modelo(self.estado, 'solicitar_boleta', percepcion)
+        
+
+         # Mensajes de depuración
+        print(f"Estado actual: {self.estado}")
+        print(f"Boleta ingresada: {estudiante.boleta}")
         regla = self.buscar_regla(self.estado)
+
+        print(f"Regla seleccionada: {regla}")
+        print(f"Boleta correcta: {self.reglas['boleta_correcta'](self.estado)}")
+
         if regla == 'inscribir':
             materias = obtener_materias_por_semestre(estudiante.semestre)
             self.actualizar_estado(estudiante, materias)
