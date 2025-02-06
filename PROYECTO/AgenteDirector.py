@@ -23,8 +23,8 @@ class AgenteDirector:
     def definir_reglas(self):
         # Define las reglas del agente
         return {
-            'boleta_correcta': lambda estado: estado['boleta'] == estado['boleta_ingresada'],
-            'boleta_incorrecta': lambda estado: estado['boleta'] != estado['boleta_ingresada']
+            'boleta_correcta': lambda estado: estado.get('boleta') == estado.get('boleta_ingresada'),
+            'boleta_incorrecta': lambda estado: estado.get('boleta') != estado.get('boleta_ingresada')
         }
 
     def buscar_regla(self, estado):
@@ -38,15 +38,14 @@ class AgenteDirector:
         percepcion = {'boleta_ingresada': estudiante.boleta}
         # Asegúrate de que 'boleta' esté en el estado inicial
         if 'boleta' not in self.estado:
-            self.estado['boleta'] = None  # O algún valor predeterminado
+            self.estado['boleta'] = estudiante.boleta  # Asigna la boleta del estudiante al estado
         self.estado = self.modelo(self.estado, 'solicitar_boleta', percepcion)
         
-
-         # Mensajes de depuración
+        # Mensajes de depuración
         print(f"Estado actual: {self.estado}")
         print(f"Boleta ingresada: {estudiante.boleta}")
+        
         regla = self.buscar_regla(self.estado)
-
         print(f"Regla seleccionada: {regla}")
         print(f"Boleta correcta: {self.reglas['boleta_correcta'](self.estado)}")
 
