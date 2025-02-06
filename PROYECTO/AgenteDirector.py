@@ -1,8 +1,12 @@
+from materias import obtener_materias_por_semestre
+
 class AgenteDirector:
     def __init__(self, responsable):
         self.inscripciones = {}
         self.responsable = responsable
         self.estado = {}
+        self.modelo = self.modelo_del_mundo
+        self.reglas = self.definir_reglas()
 
     def actualizar_estado(self, estudiante, materias):
         self.estado[estudiante.nombre] = {
@@ -10,10 +14,32 @@ class AgenteDirector:
             'materias': materias
         }
 
+    def modelo_del_mundo(self, estado, accion, percepcion):
+        # Actualiza el estado basado en la acción y la percepción
+        estado_actualizado = estado.copy()
+        estado_actualizado.update(percepcion)
+        return estado_actualizado
+
+    def definir_reglas(self):
+        # Define las reglas del agente
+        return {
+            'boleta_correcta': lambda estado: estado['boleta'] == estado['boleta_ingresada'],
+            'boleta_incorrecta': lambda estado: estado['boleta'] != estado['boleta_ingresada']
+        }
+
+    def buscar_regla(self, estado):
+        # Busca la regla adecuada basada en el estado
+        if self.reglas['boleta_correcta'](estado):
+            return 'inscribir'
+        elif self.reglas['boleta_incorrecta'](estado):
+            return 'rechazar'
+
     def solicitar_boleta_y_materias(self, estudiante):
-        boleta_ingresada = input(f"Ingrese la boleta de pago para {estudiante.nombre}: ")
-        if boleta_ingresada == estudiante.boleta:
-            materias = input(f"Ingrese las materias para {estudiante.nombre} separadas por comas: ").split(',')
+        percepcion = {'boleta_ingresada': estudiante.boleta}
+        self.estado = self.modelo(self.estado, 'solicitar_boleta', percepcion)
+        regla = self.buscar_regla(self.estado)
+        if regla == 'inscribir':
+            materias = obtener_materias_por_semestre(estudiante.semestre)
             self.actualizar_estado(estudiante, materias)
             self.inscribir(estudiante, materias)
         else:

@@ -1,0 +1,106 @@
+
+Nivel A
+INGLES I
+FISICA GENERAL
+ALGEBRA I
+CALCULO I
+INTRODUCCION A LA PROGRAMACION
+Nivel B
+INGLES II
+ALGEBRA II
+CALCULO II
+ELEM. DE PROGRAMACION Y ESTRUC. DE DATOS
+ARQUITECTURA DE COMPUTADORAS I
+PROGRAMACION
+Nivel C
+CALCULO NUMERICO
+LOGICA
+ARQUITECTURA DE COMPUTADORAS II
+TEORIA DE GRAFOS
+ORGANIZACION Y METODOS
+METODOS Y TECNICAS DE PROGRAMACION
+Nivel D
+PROBABILIDAD Y ESTADISTICA
+TALLER DE PROGRAMACION EN BAJO NIVEL
+BASE DE DATOS I
+SISTEMAS DE INFORMACION I
+PROGRAMACION FUNCIONAL
+ALGORITMOS AVANZADOS
+Nivel E
+BASE DE DATOS II
+TALLER DE SISTEMAS OPERATIVOS
+SISTEMAS DE INFORMACION II
+TEORIA DE AUTOMATAS Y LENG. FORMALES
+GRAFICACION POR COMPUTADORA
+INTELIGENCIA ARTIFICIAL I
+Nivel F
+INGENIERIA DE SOFTWARE
+REDES DE COMPUTADORAS
+ESTRUCTURA Y SEMANTICA DE LENGUAJES DE PROGRA
+TALLER DE BASE DE DATOS
+INTELIGENCIA ARTIFICIAL II
+PROGRAMACION WEB
+Nivel G
+SIMULACION DE SISTEMAS
+TALLER DE INGENIERIA DE SOFTWARE
+ARQUITECTURA DE SOFTWARE
+TELEFONIA IP
+INTERACCION HUMANO COMPUTADOR
+TECNOLOGIA REDES AVANZADAS
+Nivel H
+GENERACION DE SOFTWARE
+APLICACION DE SISTEMAS OPERATIVOS
+EVALUACION Y AUDITORIA DE SISTEMAS
+TALLER DE GRADO I
+Nivel I
+PROCESOS AGILES
+WEB SEMANTICAS
+ROBOTICA
+PROGRAMACION MOVIL
+SEGURIDAD DE SISTEMAS
+TALLER DE GRADO II
+BUSINESS INTELLIGENCE Y BIG DATA
+
+---------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------
+DINERO DEL ESTUDIANTE : 1000bs
+TIEMPO : 1min equivales 1dia 
+TIEMPO DE TODO EL PROCESO : 3dias
+
+
+
+
+PRECIO DE LA MATRICULA : ___
+DIA 1  
+(Estudiante)Ir a cajero 
+(Estudiante)Pedir boleta
+(cajero) Cobrar boleta "Por favor para la boleta tiene un reion de 22bs"
+(Estudiante) Pagar boleta : 22 
+(Cajero) Entregar boleta { ID : 1234, Juan Jose Huanca , CODIGO: XYZEE}
+
+/**cajero(boleta pagada, boleta no pagada)
+estudiante(nombre,dinero total, con_boleta: false , materias_lista)**/
+
+DIA 2 
+(RESPONSABLE) Habilita materias 
+Materias abiertas 
+SEMESTRE3 (ecuacion diferenciales, estadistica 1, taller de metodos)
+(ESTUDIANTE) Selecciono el semestre3 
+
+/**
+responsanble(materias_habilitadas = false)
+estudiante(nombre,dinero total, con_boleta: false , materias_lista)
+**/
+
+DIA 3 
+(ESTUDIANTE) ir a ofinica del director 
+(DIRECTOR) solicita boleta de pago 
+(ESTUDIANTE) entrega boleta de pago { ID : 1234 , CODIGO: XYZEE}
+(DIRECTOR) solicita materias del estudiante  
+(ESTUDIANTE) entrega la lista de las materias que quiere inscribirse 
+(DIRECTOR) INSCRIBE AL ESTUDIANTE 
+
+
