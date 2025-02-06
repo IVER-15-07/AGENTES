@@ -45,5 +45,11 @@ class AgenteEstudiante:
         director.solicitar_boleta_y_materias(self)
         self.actualizar_estado()
 
+    def mostrar_estado(self):
+        print("\n=== Estado Actual del Estudiante ===")
+        print(f"Nombre: {self.nombre}")
+        print(f"Monto Total: {self.dinero}bs")
+        print(f"Semestre: {self.semestre}")
+
     def solicitar_inscripciones(self, director):
         return director.gestionar_inscripcion()

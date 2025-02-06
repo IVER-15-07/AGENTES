@@ -55,10 +55,10 @@ class AgenteResponsable:
     def cerrar_materias(self):
         materias_cerradas = []
         for materia, cupo in self.materias_disponibles.items():
-            if cupo <= 4:
+            if cupo <= 10:
                 materias_cerradas.append(materia)
 
         for materia in materias_cerradas:
             del self.materias_disponibles[materia]
             print(f"Responsable: La materia {materia} ha sido cerrada por alcanzar el cupo máximo de 4 estudiantes")
-        self.actualizar_estado()
+        self.actualizar_estado
